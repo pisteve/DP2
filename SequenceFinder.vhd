@@ -6,7 +6,7 @@
 -- Target Devices: NEXYS 4 DDR Artix-7
 -- Description: This module checks for a user defined sequence.
 -- Revision: 
-	-- Revision 0.01 @ 04:47 03/14/2017 - Moduled Completed with minimal testing and no optimization.
+	-- Revision 0.01 @ 04:47 03/14/2017 - Module Completed with minimal testing and no optimization.
 -- Instructions: 
 	-- (1) User_Sequence, User_Sequence_Length must be provided prior to Reset
 			 --User_Sequence_Length is in terms of number of characters. For example: 08E61J has User_Sequence_Length of 3.
