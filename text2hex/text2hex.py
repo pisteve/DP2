@@ -16,13 +16,21 @@ def main():
         print 'File not found'
         sys.exit()
     else:
-        fw = open("hex.txt", 'a')
+        list = []
+
         for line in fr:
             hexVal = "" 
             line = line.rstrip()
             for ch in line:
                 hexVal += str(hex(ord(ch)))[2:] + " " 
-            fw.write(hexVal +'\n');
+            list.append(hexVal)
+        fw = open("hex.txt", 'a')
+        list.sort()
+        for line in list:
+            print line
+            fw.write(line+'\n')
+
+       
         fw.close()
 
 
