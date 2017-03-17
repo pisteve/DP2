@@ -9,7 +9,7 @@
 	-- Revision 0.01 @ 04:47PM 03/14/2017 - Module completed with minimal testing and no optimization.
 	-- Revision 0.02 @ 05:22PM 03/15/2017 - Removed SF_User_Sequence_Length requirement, and correct output generated 2 clock cycles after the last data entry. 
 	--												  Module completed with minimal testing and no optimization. 
-	-- Revision 0.03 @ 12:17PM 93/17/2017 - Changed end sequence to "FF" and added "SF_Begin" 
+	-- Revision 0.03 @ 12:17PM 03/17/2017 - Changed end sequence to "FF" and added "SF_Begin" 
 -- Instructions: 
 	-- (1) SF_User_Sequence must be provided prior to SF_Reset
 	-- (2) SF_Reset must be applied prior to SF_User_Data entry
