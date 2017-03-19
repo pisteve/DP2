@@ -19,9 +19,9 @@
 #endif
 
 /* defined by each RAW mode application */
-void print_app_header();
-int start_application();
-int transfer_data();
+void print_headers();
+int start_apps();
+int transfer_packets();
 void tcp_fasttmr(void);
 void tcp_slowtmr(void);
 
@@ -36,7 +36,7 @@ err_t dhcp_start(struct netif *netif);
 extern volatile int TcpFastTmrFlag;
 extern volatile int TcpSlowTmrFlag;
 static struct netif server_netif;
-struct netif *packet_netif;
+struct netif *netif;
 
 void
 print_ip(char *msg, struct ip_addr *ip) 
@@ -64,7 +64,7 @@ int main()
 	unsigned char mac_ethernet_address[] =
 	{ 0x00, 0x0a, 0x35, 0x00, 0x01, 0x02 };
 
-	packet_netif = &server_netif;
+	netif = &server_netif;
 
 	init_platform();
 
@@ -78,60 +78,63 @@ int main()
 	IP4_ADDR(&netmask, 255, 255, 255,  0);
 	IP4_ADDR(&gw,      192, 168,   1,  1);
 #endif	
-	print_app_header();
+
+
+	print_seq_header();
 
 	lwip_init();
 
+
   	/* Add network interface to the netif_list, and set it as default */
-	if (!xemac_add(packet_netif, &ipaddr, &netmask,
+	if (!xemac_add(netif, &ipaddr, &netmask,
 						&gw, mac_ethernet_address,
 						PLATFORM_EMAC_BASEADDR)) {
 		xil_printf("Error adding N/W interface\n\r");
 		return -1;
 	}
-	netif_set_default(packet_netif);
+	netif_set_default(netif);
 
 	/* now enable interrupts */
 	platform_enable_interrupts();
 
 	/* specify that the network if is up */
-	netif_set_up(packet_netif);
+	netif_set_up(netif);
 
 #if (LWIP_DHCP==1)
 	/* Create a new DHCP client for this interface.
 	 * Note: you must call dhcp_fine_tmr() and dhcp_coarse_tmr() at
 	 * the predefined regular intervals after starting the client.
 	 */
-	dhcp_start(echo_netif);
+	dhcp_start(netif);
 	dhcp_timoutcntr = 24;
 
-	while(((echo_netif->ip_addr.addr) == 0) && (dhcp_timoutcntr > 0))
+	while(((netif->ip_addr.addr) == 0) && (dhcp_timoutcntr > 0))
 		xemacif_input(packet_netif);
 
 	if (dhcp_timoutcntr <= 0) {
-		if ((echo_netif->ip_addr.addr) == 0) {
+		if ((netif->ip_addr.addr) == 0) {
 			xil_printf("DHCP Timeout\r\n");
 			xil_printf("Configuring default IP of 192.168.1.10\r\n");
-			IP4_ADDR(&(echo_netif->ip_addr),  192, 168,   1, 10);
-			IP4_ADDR(&(echo_netif->netmask), 255, 255, 255,  0);
-			IP4_ADDR(&(echo_netif->gw),      192, 168,   1,  1);
+			IP4_ADDR(&(netif->ip_addr),  192, 168,   1, 10);
+			IP4_ADDR(&(netif->netmask), 255, 255, 255,  0);
+			IP4_ADDR(&(netif->gw),      192, 168,   1,  1);
 		}
 	}
 
-	ipaddr.addr = echo_netif->ip_addr.addr;
-	gw.addr = echo_netif->gw.addr;
-	netmask.addr = echo_netif->netmask.addr;
+	ipaddr.addr = netif->ip_addr.addr;
+	gw.addr = netif->gw.addr;
+	netmask.addr = netif->netmask.addr;
 #endif
 
 	print_ip_settings(&ipaddr, &netmask, &gw);
 
 
-	start_application();
+	start_apps();
 
 
 	while (1) {
-	    xemacif_input(packet_netif);
-	    transfer_data();
+	    xemacif_input(netif);
+	    transfer_packets();
 	}
   
 	/* never reached */
