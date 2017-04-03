@@ -33,93 +33,93 @@ end component;
 
 signal input : std_logic_vector(7 downto 0);
 -- jay
-signal cmp_s0_0x6a: std_logic;	--j
+signal cmp_s0_0x6a_0: std_logic;	--j
 signal s0_ff_0: std_logic := '0';
 signal out_and_s0_ff_0: std_logic := '0';
 
-signal cmp_s0_0x61: std_logic;	--a
+signal cmp_s0_0x61_1: std_logic;	--a
 signal s0_ff_1: std_logic := '0';
 signal out_and_s0_ff_1: std_logic := '0';
 
-signal cmp_s0_0x79: std_logic;	--y
+signal cmp_s0_0x79_2: std_logic;	--y
 signal s0_ff_2: std_logic := '0';
 signal out_and_s0_ff_2: std_logic := '0';
 
 
 -- karri
-signal cmp_s1_0x6b: std_logic;	--k
+signal cmp_s1_0x6b_0: std_logic;	--k
 signal s1_ff_0: std_logic := '0';
 signal out_and_s1_ff_0: std_logic := '0';
 
-signal cmp_s1_0x61: std_logic;	--a
+signal cmp_s1_0x61_1: std_logic;	--a
 signal s1_ff_1: std_logic := '0';
 signal out_and_s1_ff_1: std_logic := '0';
 
-signal cmp_s1_0x72: std_logic;	--r
+signal cmp_s1_0x72_2: std_logic;	--r
 signal s1_ff_2: std_logic := '0';
 signal out_and_s1_ff_2: std_logic := '0';
 
-signal cmp_s1_0x72: std_logic;	--r
+signal cmp_s1_0x72_3: std_logic;	--r
 signal s1_ff_3: std_logic := '0';
 signal out_and_s1_ff_3: std_logic := '0';
 
-signal cmp_s1_0x69: std_logic;	--i
+signal cmp_s1_0x69_4: std_logic;	--i
 signal s1_ff_4: std_logic := '0';
 signal out_and_s1_ff_4: std_logic := '0';
 
 
 -- steven
-signal cmp_s2_0x73: std_logic;	--s
+signal cmp_s2_0x73_0: std_logic;	--s
 signal s2_ff_0: std_logic := '0';
 signal out_and_s2_ff_0: std_logic := '0';
 
-signal cmp_s2_0x74: std_logic;	--t
+signal cmp_s2_0x74_1: std_logic;	--t
 signal s2_ff_1: std_logic := '0';
 signal out_and_s2_ff_1: std_logic := '0';
 
-signal cmp_s2_0x65: std_logic;	--e
+signal cmp_s2_0x65_2: std_logic;	--e
 signal s2_ff_2: std_logic := '0';
 signal out_and_s2_ff_2: std_logic := '0';
 
-signal cmp_s2_0x76: std_logic;	--v
+signal cmp_s2_0x76_3: std_logic;	--v
 signal s2_ff_3: std_logic := '0';
 signal out_and_s2_ff_3: std_logic := '0';
 
-signal cmp_s2_0x65: std_logic;	--e
+signal cmp_s2_0x65_4: std_logic;	--e
 signal s2_ff_4: std_logic := '0';
 signal out_and_s2_ff_4: std_logic := '0';
 
-signal cmp_s2_0x6e: std_logic;	--n
+signal cmp_s2_0x6e_5: std_logic;	--n
 signal s2_ff_5: std_logic := '0';
 signal out_and_s2_ff_5: std_logic := '0';
 
 
 -- zhirong
-signal cmp_s3_0x7a: std_logic;	--z
+signal cmp_s3_0x7a_0: std_logic;	--z
 signal s3_ff_0: std_logic := '0';
 signal out_and_s3_ff_0: std_logic := '0';
 
-signal cmp_s3_0x68: std_logic;	--h
+signal cmp_s3_0x68_1: std_logic;	--h
 signal s3_ff_1: std_logic := '0';
 signal out_and_s3_ff_1: std_logic := '0';
 
-signal cmp_s3_0x69: std_logic;	--i
+signal cmp_s3_0x69_2: std_logic;	--i
 signal s3_ff_2: std_logic := '0';
 signal out_and_s3_ff_2: std_logic := '0';
 
-signal cmp_s3_0x72: std_logic;	--r
+signal cmp_s3_0x72_3: std_logic;	--r
 signal s3_ff_3: std_logic := '0';
 signal out_and_s3_ff_3: std_logic := '0';
 
-signal cmp_s3_0x6f: std_logic;	--o
+signal cmp_s3_0x6f_4: std_logic;	--o
 signal s3_ff_4: std_logic := '0';
 signal out_and_s3_ff_4: std_logic := '0';
 
-signal cmp_s3_0x6e: std_logic;	--n
+signal cmp_s3_0x6e_5: std_logic;	--n
 signal s3_ff_5: std_logic := '0';
 signal out_and_s3_ff_5: std_logic := '0';
 
-signal cmp_s3_0x67: std_logic;	--g
+signal cmp_s3_0x67_6: std_logic;	--g
 signal s3_ff_6: std_logic := '0';
 signal out_and_s3_ff_6: std_logic := '0';
 

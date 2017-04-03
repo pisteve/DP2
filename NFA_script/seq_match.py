@@ -58,7 +58,7 @@ def write_signals(fw, hex_list):
     for i in range(len(hex_list)):
         fw.write("-- " + hex_list[i].decode("hex") + "\n");
         for j in range(0, len(hex_list[i]), 2):
-            fw.write("signal cmp_s" + str(i) + '_0x' + hex_list[i][j:j+2] + ': std_logic;')
+            fw.write("signal cmp_s" + str(i) + '_0x' + hex_list[i][j:j+2] + '_' + str(j/2) + ': std_logic;')
             fw.write("\t--" + hex_list[i][j:j+2].decode("hex") +'\n')
             fw.write("signal s" + str(i) + "_ff_" + str(j/2) + ": std_logic := '0';\n")
             fw.write("signal out_and_s" + str(i) + "_ff_" + str(j/2) + ": std_logic := '0';\n\n")
