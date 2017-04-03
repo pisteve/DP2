@@ -83,7 +83,11 @@ def write_ports(fw, hex_list):
                 fw.write(" FF port map( clk => clk, reset => reset, input => '1', output =>" + "s" + str(i) + "_ff_" + str(j/2) + ");\n")
             else:
                 fw.write("\tflipflop_s"+ str(i) + '_f' + str(j/2) + ':')
+<<<<<<< HEAD
                 fw.write(" FF port map( clk => clk, reset => reset, input => out_and_s" + str(i) + '_ff_' + str(j/2 - 1) + ", output => s" + str(i) + '_ff_' + str(j/2)+ ");\n")
+=======
+                fw.write(" FF port map( clk => clk, reset => reset, input => out_and_s" + str(i) + '_ff_' + str(j/2) + ", output => s" + str(i) + '_ff_' + str(j/2)+ ");\n")
+>>>>>>> 40a4ea0e37dfedc8877b06d730f8fc34a6bb992b
             
    
             fw.write("\tand_s" + str(i) + "_ff_" + str(j/2) + ": out_and_s" + str(i) + "_ff_" + str(j/2) + " <= " + "s" + str(i) + "_ff_" + str(j/2) + " and")
