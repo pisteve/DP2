@@ -131,17 +131,10 @@ begin
 	flipflop_s0_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s0_ff_0);
 	and_s0_ff_0: out_and_s0_ff_0 <= s0_ff_0 and cmp_s0_0x6a_0);
 	byte_comp_s0_61_1: byte_compare port map( data_in => input, sig_in => x"61_1" , is_valid => cmp_s0_0x61_1);
-<<<<<<< HEAD
 	flipflop_s0_f1: FF port map( clk => clk, reset => reset, input => out_and_s0_ff_0, output => s0_ff_1);
 	and_s0_ff_1: out_and_s0_ff_1 <= s0_ff_1 and cmp_s0_0x61_1);
 	byte_comp_s0_79_2: byte_compare port map( data_in => input, sig_in => x"79_2" , is_valid => cmp_s0_0x79_2);
 	flipflop_s0_f2: FF port map( clk => clk, reset => reset, input => out_and_s0_ff_1, output => s0_ff_2);
-=======
-	flipflop_s0_f1: FF port map( clk => clk, reset => reset, input => out_and_s0_ff_1, output => s0_ff_1);
-	and_s0_ff_1: out_and_s0_ff_1 <= s0_ff_1 and cmp_s0_0x61_1);
-	byte_comp_s0_79_2: byte_compare port map( data_in => input, sig_in => x"79_2" , is_valid => cmp_s0_0x79_2);
-	flipflop_s0_f2: FF port map( clk => clk, reset => reset, input => out_and_s0_ff_2, output => s0_ff_2);
->>>>>>> 40a4ea0e37dfedc8877b06d730f8fc34a6bb992b
 	and_s0_ff_2: out_and_s0_ff_2 <= s0_ff_2 and cmp_s0_0x79_2);
 output_0 <= out_and_s0_ff_2;
 
@@ -149,7 +142,6 @@ output_0 <= out_and_s0_ff_2;
 	flipflop_s1_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s1_ff_0);
 	and_s1_ff_0: out_and_s1_ff_0 <= s1_ff_0 and cmp_s1_0x6b_0);
 	byte_comp_s1_61_1: byte_compare port map( data_in => input, sig_in => x"61_1" , is_valid => cmp_s1_0x61_1);
-<<<<<<< HEAD
 	flipflop_s1_f1: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_0, output => s1_ff_1);
 	and_s1_ff_1: out_and_s1_ff_1 <= s1_ff_1 and cmp_s1_0x61_1);
 	byte_comp_s1_72_2: byte_compare port map( data_in => input, sig_in => x"72_2" , is_valid => cmp_s1_0x72_2);
@@ -160,18 +152,6 @@ output_0 <= out_and_s0_ff_2;
 	and_s1_ff_3: out_and_s1_ff_3 <= s1_ff_3 and cmp_s1_0x72_3);
 	byte_comp_s1_69_4: byte_compare port map( data_in => input, sig_in => x"69_4" , is_valid => cmp_s1_0x69_4);
 	flipflop_s1_f4: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_3, output => s1_ff_4);
-=======
-	flipflop_s1_f1: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_1, output => s1_ff_1);
-	and_s1_ff_1: out_and_s1_ff_1 <= s1_ff_1 and cmp_s1_0x61_1);
-	byte_comp_s1_72_2: byte_compare port map( data_in => input, sig_in => x"72_2" , is_valid => cmp_s1_0x72_2);
-	flipflop_s1_f2: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_2, output => s1_ff_2);
-	and_s1_ff_2: out_and_s1_ff_2 <= s1_ff_2 and cmp_s1_0x72_2);
-	byte_comp_s1_72_3: byte_compare port map( data_in => input, sig_in => x"72_3" , is_valid => cmp_s1_0x72_3);
-	flipflop_s1_f3: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_3, output => s1_ff_3);
-	and_s1_ff_3: out_and_s1_ff_3 <= s1_ff_3 and cmp_s1_0x72_3);
-	byte_comp_s1_69_4: byte_compare port map( data_in => input, sig_in => x"69_4" , is_valid => cmp_s1_0x69_4);
-	flipflop_s1_f4: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_4, output => s1_ff_4);
->>>>>>> 40a4ea0e37dfedc8877b06d730f8fc34a6bb992b
 	and_s1_ff_4: out_and_s1_ff_4 <= s1_ff_4 and cmp_s1_0x69_4);
 output_1 <= out_and_s1_ff_4;
 
@@ -179,7 +159,6 @@ output_1 <= out_and_s1_ff_4;
 	flipflop_s2_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s2_ff_0);
 	and_s2_ff_0: out_and_s2_ff_0 <= s2_ff_0 and cmp_s2_0x73_0);
 	byte_comp_s2_74_1: byte_compare port map( data_in => input, sig_in => x"74_1" , is_valid => cmp_s2_0x74_1);
-<<<<<<< HEAD
 	flipflop_s2_f1: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_0, output => s2_ff_1);
 	and_s2_ff_1: out_and_s2_ff_1 <= s2_ff_1 and cmp_s2_0x74_1);
 	byte_comp_s2_65_2: byte_compare port map( data_in => input, sig_in => x"65_2" , is_valid => cmp_s2_0x65_2);
@@ -193,21 +172,6 @@ output_1 <= out_and_s1_ff_4;
 	and_s2_ff_4: out_and_s2_ff_4 <= s2_ff_4 and cmp_s2_0x65_4);
 	byte_comp_s2_6e_5: byte_compare port map( data_in => input, sig_in => x"6e_5" , is_valid => cmp_s2_0x6e_5);
 	flipflop_s2_f5: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_4, output => s2_ff_5);
-=======
-	flipflop_s2_f1: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_1, output => s2_ff_1);
-	and_s2_ff_1: out_and_s2_ff_1 <= s2_ff_1 and cmp_s2_0x74_1);
-	byte_comp_s2_65_2: byte_compare port map( data_in => input, sig_in => x"65_2" , is_valid => cmp_s2_0x65_2);
-	flipflop_s2_f2: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_2, output => s2_ff_2);
-	and_s2_ff_2: out_and_s2_ff_2 <= s2_ff_2 and cmp_s2_0x65_2);
-	byte_comp_s2_76_3: byte_compare port map( data_in => input, sig_in => x"76_3" , is_valid => cmp_s2_0x76_3);
-	flipflop_s2_f3: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_3, output => s2_ff_3);
-	and_s2_ff_3: out_and_s2_ff_3 <= s2_ff_3 and cmp_s2_0x76_3);
-	byte_comp_s2_65_4: byte_compare port map( data_in => input, sig_in => x"65_4" , is_valid => cmp_s2_0x65_4);
-	flipflop_s2_f4: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_4, output => s2_ff_4);
-	and_s2_ff_4: out_and_s2_ff_4 <= s2_ff_4 and cmp_s2_0x65_4);
-	byte_comp_s2_6e_5: byte_compare port map( data_in => input, sig_in => x"6e_5" , is_valid => cmp_s2_0x6e_5);
-	flipflop_s2_f5: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_5, output => s2_ff_5);
->>>>>>> 40a4ea0e37dfedc8877b06d730f8fc34a6bb992b
 	and_s2_ff_5: out_and_s2_ff_5 <= s2_ff_5 and cmp_s2_0x6e_5);
 output_2 <= out_and_s2_ff_5;
 
@@ -215,7 +179,6 @@ output_2 <= out_and_s2_ff_5;
 	flipflop_s3_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s3_ff_0);
 	and_s3_ff_0: out_and_s3_ff_0 <= s3_ff_0 and cmp_s3_0x7a_0);
 	byte_comp_s3_68_1: byte_compare port map( data_in => input, sig_in => x"68_1" , is_valid => cmp_s3_0x68_1);
-<<<<<<< HEAD
 	flipflop_s3_f1: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_0, output => s3_ff_1);
 	and_s3_ff_1: out_and_s3_ff_1 <= s3_ff_1 and cmp_s3_0x68_1);
 	byte_comp_s3_69_2: byte_compare port map( data_in => input, sig_in => x"69_2" , is_valid => cmp_s3_0x69_2);
@@ -232,24 +195,6 @@ output_2 <= out_and_s2_ff_5;
 	and_s3_ff_5: out_and_s3_ff_5 <= s3_ff_5 and cmp_s3_0x6e_5);
 	byte_comp_s3_67_6: byte_compare port map( data_in => input, sig_in => x"67_6" , is_valid => cmp_s3_0x67_6);
 	flipflop_s3_f6: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_5, output => s3_ff_6);
-=======
-	flipflop_s3_f1: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_1, output => s3_ff_1);
-	and_s3_ff_1: out_and_s3_ff_1 <= s3_ff_1 and cmp_s3_0x68_1);
-	byte_comp_s3_69_2: byte_compare port map( data_in => input, sig_in => x"69_2" , is_valid => cmp_s3_0x69_2);
-	flipflop_s3_f2: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_2, output => s3_ff_2);
-	and_s3_ff_2: out_and_s3_ff_2 <= s3_ff_2 and cmp_s3_0x69_2);
-	byte_comp_s3_72_3: byte_compare port map( data_in => input, sig_in => x"72_3" , is_valid => cmp_s3_0x72_3);
-	flipflop_s3_f3: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_3, output => s3_ff_3);
-	and_s3_ff_3: out_and_s3_ff_3 <= s3_ff_3 and cmp_s3_0x72_3);
-	byte_comp_s3_6f_4: byte_compare port map( data_in => input, sig_in => x"6f_4" , is_valid => cmp_s3_0x6f_4);
-	flipflop_s3_f4: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_4, output => s3_ff_4);
-	and_s3_ff_4: out_and_s3_ff_4 <= s3_ff_4 and cmp_s3_0x6f_4);
-	byte_comp_s3_6e_5: byte_compare port map( data_in => input, sig_in => x"6e_5" , is_valid => cmp_s3_0x6e_5);
-	flipflop_s3_f5: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_5, output => s3_ff_5);
-	and_s3_ff_5: out_and_s3_ff_5 <= s3_ff_5 and cmp_s3_0x6e_5);
-	byte_comp_s3_67_6: byte_compare port map( data_in => input, sig_in => x"67_6" , is_valid => cmp_s3_0x67_6);
-	flipflop_s3_f6: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_6, output => s3_ff_6);
->>>>>>> 40a4ea0e37dfedc8877b06d730f8fc34a6bb992b
 	and_s3_ff_6: out_and_s3_ff_6 <= s3_ff_6 and cmp_s3_0x67_6);
 output_3 <= out_and_s3_ff_6;
 
