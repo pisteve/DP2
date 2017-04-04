@@ -7,6 +7,7 @@ use IEEE.std_logic_1164.all;
 
 entity byte_compare is
 	PORT(
+		clk : IN std_logic;
 		data_in : IN std_logic_vector(7 downto 0);
 		sig_in: IN std_logic_vector(7 downto 0);          
 		is_valid : OUT std_logic
