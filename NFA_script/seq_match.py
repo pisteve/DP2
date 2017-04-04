@@ -24,6 +24,7 @@ def write_header(fw, size):
 def write_components(fw):
     fw.write("component byte_compare")
     fw.write("\tport(\n")
+    fw.write("\t\tclk :  std_logic;\n")
     fw.write("\t\tdata_in : in std_logic_vector(7 downto 0);\n")
     fw.write("\t\tsig_in : in std_logic_vector(7 downto 0);\n")
     fw.write("\t\tis_valid : out std_logic\n")
@@ -74,7 +75,7 @@ def write_ports(fw, hex_list):
     for i in range(len(hex_list)):
         for j in range(0, len(hex_list[i]), 2):
             fw.write("\tbyte_comp_s"+ str(i) + '_' + hex_list[i][j:j+2] + '_' + str(j/2) +  ':')
-            fw.write(' byte_compare port map( data_in => input, sig_in => x"' + hex_list[i][j:j+2] + '" ')
+            fw.write(' byte_compare port map( clk => clk, data_in => input, sig_in => x"' + hex_list[i][j:j+2] + '" ')
             fw.write(", is_valid => cmp_s" + str(i) + '_0x' + hex_list[i][j:j+2] + '_' + str(j/2)+ ");\n")
             
             if j == 0:
