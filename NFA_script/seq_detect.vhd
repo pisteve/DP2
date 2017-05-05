@@ -32,6 +32,15 @@ component FF	port(
 );
 end component;
 
+component pull_up_module
+	port(
+		clk :  std_logic;
+		reset :  std_logic;
+		isMatching : in std_logic;
+		out_isMatching : out std_logic
+);
+end component;
+
 signal input : std_logic_vector(7 downto 0);
 -- jay
 signal cmp_s0_0x6a_0: std_logic;	--j
@@ -125,6 +134,15 @@ signal s3_ff_6: std_logic := '0';
 signal out_and_s3_ff_6: std_logic := '0';
 
 
+signal isMatching_0: std_logic;
+signal isMatching_1: std_logic;
+signal isMatching_2: std_logic;
+signal isMatching_3: std_logic;
+signal hold_0: std_logic;
+signal hold_1: std_logic;
+signal hold_2: std_logic;
+signal hold_3: std_logic;
+
 begin
 	input <= data_in;
 	byte_comp_s0_6a_0: byte_compare port map( clk => clk, data_in => input, sig_in => x"6a" , is_valid => cmp_s0_0x6a_0);
@@ -136,7 +154,7 @@ begin
 	byte_comp_s0_79_2: byte_compare port map( clk => clk, data_in => input, sig_in => x"79" , is_valid => cmp_s0_0x79_2);
 	flipflop_s0_f2: FF port map( clk => clk, reset => reset, input => out_and_s0_ff_1, output => s0_ff_2);
 	and_s0_ff_2: out_and_s0_ff_2 <= s0_ff_2 and cmp_s0_0x79_2;
-output_0 <= out_and_s0_ff_2;
+isMatching_0 <= out_and_s0_ff_2;
 
 	byte_comp_s1_6b_0: byte_compare port map( clk => clk, data_in => input, sig_in => x"6b" , is_valid => cmp_s1_0x6b_0);
 	flipflop_s1_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s1_ff_0);
@@ -153,7 +171,7 @@ output_0 <= out_and_s0_ff_2;
 	byte_comp_s1_69_4: byte_compare port map( clk => clk, data_in => input, sig_in => x"69" , is_valid => cmp_s1_0x69_4);
 	flipflop_s1_f4: FF port map( clk => clk, reset => reset, input => out_and_s1_ff_3, output => s1_ff_4);
 	and_s1_ff_4: out_and_s1_ff_4 <= s1_ff_4 and cmp_s1_0x69_4;
-output_1 <= out_and_s1_ff_4;
+isMatching_1 <= out_and_s1_ff_4;
 
 	byte_comp_s2_73_0: byte_compare port map( clk => clk, data_in => input, sig_in => x"73" , is_valid => cmp_s2_0x73_0);
 	flipflop_s2_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s2_ff_0);
@@ -173,7 +191,7 @@ output_1 <= out_and_s1_ff_4;
 	byte_comp_s2_6e_5: byte_compare port map( clk => clk, data_in => input, sig_in => x"6e" , is_valid => cmp_s2_0x6e_5);
 	flipflop_s2_f5: FF port map( clk => clk, reset => reset, input => out_and_s2_ff_4, output => s2_ff_5);
 	and_s2_ff_5: out_and_s2_ff_5 <= s2_ff_5 and cmp_s2_0x6e_5;
-output_2 <= out_and_s2_ff_5;
+isMatching_2 <= out_and_s2_ff_5;
 
 	byte_comp_s3_7a_0: byte_compare port map( clk => clk, data_in => input, sig_in => x"7a" , is_valid => cmp_s3_0x7a_0);
 	flipflop_s3_f0: FF port map( clk => clk, reset => reset, input => '1', output =>s3_ff_0);
@@ -196,6 +214,14 @@ output_2 <= out_and_s2_ff_5;
 	byte_comp_s3_67_6: byte_compare port map( clk => clk, data_in => input, sig_in => x"67" , is_valid => cmp_s3_0x67_6);
 	flipflop_s3_f6: FF port map( clk => clk, reset => reset, input => out_and_s3_ff_5, output => s3_ff_6);
 	and_s3_ff_6: out_and_s3_ff_6 <= s3_ff_6 and cmp_s3_0x67_6;
-output_3 <= out_and_s3_ff_6;
+isMatching_3 <= out_and_s3_ff_6;
 
+	pull_0: pull_up_module port map(clk => clk, reset => reset, isMatching => isMatching_0, out_isMatching => hold_0);
+	pull_1: pull_up_module port map(clk => clk, reset => reset, isMatching => isMatching_1, out_isMatching => hold_1);
+	pull_2: pull_up_module port map(clk => clk, reset => reset, isMatching => isMatching_2, out_isMatching => hold_2);
+	pull_3: pull_up_module port map(clk => clk, reset => reset, isMatching => isMatching_3, out_isMatching => hold_3);
+	FF_out_0: FF port map(clk => clk, reset => reset, input => hold_0, output => output_0);
+	FF_out_1: FF port map(clk => clk, reset => reset, input => hold_1, output => output_1);
+	FF_out_2: FF port map(clk => clk, reset => reset, input => hold_2, output => output_2);
+	FF_out_3: FF port map(clk => clk, reset => reset, input => hold_3, output => output_3);
 end behavioral;
